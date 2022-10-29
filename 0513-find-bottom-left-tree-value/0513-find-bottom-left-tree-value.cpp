@@ -13,11 +13,11 @@ class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
         
-        vector<vector<int>> res;
+        // vector<vector<int>> res;
 
          // if(root==NULL)
          //     return res[];
-
+         int ans;
          queue<TreeNode*> nodesQueue;
          nodesQueue.push(root);
 
@@ -37,9 +37,11 @@ public:
                      nodesQueue.push(node->right);
 
              }
-             res.push_back(row);
+             // res.push_back(row);
+             ans = row[0];
          }
-            int n = res.size()-1;
-         return res[n][0];
+            // int n = res.size()-1;
+         // return res[n][0];
+        return ans;
     }
 };
