@@ -12,8 +12,8 @@
 class Solution {
 public:
     bool checkTree(TreeNode* root) {
-        if(!root)
-            return true;
+        // if(!root)
+        //     return true;
         
         int total = root->left->val + root->right->val;
         
