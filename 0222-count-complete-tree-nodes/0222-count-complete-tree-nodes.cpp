@@ -12,36 +12,35 @@
 class Solution {
 public:
     
-    int fhl(TreeNode* node){
-        int ans = 0;
-        
-        while(node){
-            ans++;
-            node = node->left;
-        }
-        return ans;
-    }
-    
-    int fhr(TreeNode* node){
-        int ans = 0;
-        
-        while(node){
-            ans++;
-            node = node->right;
-        }
-        return ans;
-    }
-    
     int countNodes(TreeNode* root) {
-        if(!root)
+        // vector<vector<int>> res;
+        
+        if(root==NULL)
             return 0;
         
-        int lh = fhl(root);
-        int rh = fhr(root);
+        int ans = 0;
+        queue<TreeNode*> nodesQueue;
+        nodesQueue.push(root);
         
-        if(lh==rh)
-            return pow(2,lh)-1;
+        while(!nodesQueue.empty()){
+            int size = nodesQueue.size();
+            vector<int> row(size);
+            ans += size;
+            for(int i = 0;i<size;i++){
+                TreeNode * node = nodesQueue.front();
+                nodesQueue.pop();
+                row[i] = (node->val);
+                
+                if(node->left)
+                    nodesQueue.push(node->left);
+                
+                if(node->right)
+                    nodesQueue.push(node->right);
+                
+            }
+            // res.push_back(row);
+        }
         
-        return 1 + countNodes(root->left) + countNodes(root->right);
+        return ans;
     }
 };
