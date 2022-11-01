@@ -15,9 +15,9 @@ public:
         // if(!root)
         //     return true;
         
-        int total = root->left->val + root->right->val;
+        // int total = root->left->val + root->right->val;
         
-        if(total==root->val)
+        if(root->left->val + root->right->val==root->val)
             return true;
         
         return false;
